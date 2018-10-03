@@ -36,7 +36,6 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
 
-        fragLivro = new FragLivro();
 
         if(view == null){
             view = LayoutInflater.from(getContext()).inflate(R.layout.livro_layout, parent, false); //CARREGA O CONTEUDO DO TEMPLATE DOS LIVROS NA VARIAVEL view

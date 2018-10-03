@@ -34,23 +34,16 @@
 
     </android.support.design.widget.TabLayout>
 
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frameLayout">
 
-        <ListView
-            android:id="@+id/listViewLivros"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp">
 
-
-        </ListView>
 
 
     </FrameLayout>
+
 
     <!--
 
