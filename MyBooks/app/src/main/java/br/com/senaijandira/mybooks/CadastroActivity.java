@@ -99,7 +99,7 @@ public class  CadastroActivity extends AppCompatActivity {
             String titulo = txtTitulo.getText().toString();
             String descricao = txtDescricao.getText().toString();
 
-            Livro livro = new Livro(0, capa, titulo, descricao, '0');
+            Livro livro = new Livro(0, capa, titulo, descricao, 0);
             myBooksDb.daoLivro().inserir(livro);
             alert("Pronto", "Livro Cadastrado com sucesso", "OK", null);
 

@@ -67,6 +67,7 @@ public class LivroLerAdapter extends ArrayAdapter<Livro>{
             public void onClick(View view) {
                 livroLer.setStatusLivro(0);
                 myBooksDatabase.daoLivro().atualizar(livroLer);
+                remove(livroLer);
 
 
             }

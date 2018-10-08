@@ -67,6 +67,7 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         imgDeleteLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(livro.getStatusLivro() == 0){
                     deletarLivro(livro);
                 }
