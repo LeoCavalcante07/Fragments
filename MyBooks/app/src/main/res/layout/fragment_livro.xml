@@ -4,32 +4,7 @@
     android:layout_height="match_parent">
 
 
-    <android.support.design.widget.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/menuTab">
 
-        <android.support.design.widget.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemLivro"
-            android:text="Livro"
-            android:onClick="abrirLivro"/>
-
-
-        <android.support.design.widget.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemLivroLer"
-            android:text="Ler"/>
-
-        <android.support.design.widget.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemLivroLido"
-            android:text="Lido"/>
-
-    </android.support.design.widget.TabLayout>
 
 
     <ListView

@@ -16,28 +16,25 @@ import br.com.senaijandira.mybooks.adapter.LivroAdapter;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
 import br.com.senaijandira.mybooks.model.Livro;
 
-public class FragLivroLer extends Fragment {
+/**
+ * Created by 17259211 on 08/10/2018.
+ */
 
-    LivroAdapter livroAdapter;
+public class FragLivroLido extends Fragment {
 
+    MyBooksDatabase myBooksDb;
     ListView listViewLivros;
-
+    LivroAdapter livroAdapter;
     public static Livro[] livros;
-
-    private MyBooksDatabase myBooksDb;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v ;
+        View v;
 
         v = inflater.inflate(R.layout.fragment_livro, container, false);
 
-
-
-
-        //Criado a instancia do banco de dados
         myBooksDb = Room.databaseBuilder(getContext(), MyBooksDatabase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
 
@@ -52,24 +49,7 @@ public class FragLivroLer extends Fragment {
 
         livros = new Livro[]{};
 
+
         return v;
     }
-
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        carregarLivros();
-
-    }
-
-    public void carregarLivros(){
-        //Aqui faz um select no banco
-        livros = myBooksDb.daoLivro().selecionarTodosLivroLer();
-        livroAdapter.clear();
-        livroAdapter.addAll(livros);
-    }
-
 }

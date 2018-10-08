@@ -13,11 +13,12 @@ import android.view.View;
 import br.com.senaijandira.mybooks.adapter.LivroAdapter;
 import br.com.senaijandira.mybooks.fragments.FragLivro;
 import br.com.senaijandira.mybooks.fragments.FragLivroLer;
+import br.com.senaijandira.mybooks.fragments.FragLivroLido;
 
 public class MainActivity extends AppCompatActivity {
 
     FragmentManager fm;
-    LivroAdapter livroAdapter;
+
 
 
     TabLayout tabMenu;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                     abrirLivro();
                 }else if(tab.getPosition() == 1){
                     abrirLivroler();
+                }else if(tab.getPosition() == 2){
+                    abrirLivroLido();
                 }
             }
 
@@ -60,13 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void abrirLivro() {
+    public void abrirLivro(){
 
 //        FragLivro.LivrosAdapter livrosAdapter = new FragLivro.LivrosAdapter(this);
-
-
-
-
 
         //FragmentTransaction ft = fm.beginTransaction();
         android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
@@ -76,15 +75,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-
-
-    public void abrirLivroler() {
-
-//        FragLivro.LivrosAdapter livrosAdapter = new FragLivro.LivrosAdapter(this);
-
-
-
-
+    public void abrirLivroler(){
 
         //FragmentTransaction ft = fm.beginTransaction();
         android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
@@ -95,7 +86,15 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void openFragmentLivro(){
+    public void abrirLivroLido(){
+
+        //FragmentTransaction ft = fm.beginTransaction();
+        android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
+
+        //ft.replace(R.id.frameLayout, new FragLivroLer());
+        ft.replace(R.id.frameLayout, new FragLivroLido());
+
+        ft.commit();
 
     }
 

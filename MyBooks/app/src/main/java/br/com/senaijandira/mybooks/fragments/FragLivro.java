@@ -38,12 +38,8 @@ public class FragLivro extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_livro, container, false);
 
-
-
-
         //Criado a instancia do banco de dados
         myBooksDb = Room.databaseBuilder(getContext(), MyBooksDatabase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
-
 
         listViewLivros = v.findViewById(R.id.listViewLivros);
         livroAdapter = new LivroAdapter(getContext(), myBooksDb);
