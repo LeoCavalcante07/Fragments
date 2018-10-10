@@ -157,6 +157,8 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
             if(livro.getStatusLivro() == 2){
                 mensagem  = "Isso fará com que o livro "+livro.getTitulo()+" saia da lista de livros lidos. Deseja continuar?";
                 alertAtualizarStatus(livro,2, mensagem);
+            }else if(livro.getStatusLivro() == 1){
+                alert("Aviso", "O livro já está ma lista de livros lidos");
             }else{
                 livro.setStatusLivro(1);//com status 1 sabemos que o livro está para ser lido*/
             }
@@ -165,6 +167,8 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
             if(livro.getStatusLivro() == 1){
                 mensagem  = "Deseja marcar o livro "+livro.getTitulo()+" como lido? Isso fará com que ele saia da lista de livros para ler.";
                 alertAtualizarStatus(livro,1, mensagem);
+            }else if(livro.getStatusLivro() == 2){
+                alert("Aviso", "O livro já está na lista de livros lidos");
             }else{
                 livro.setStatusLivro(2);//com status 2 sabemos que o livro ja foi lido
             }
