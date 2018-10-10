@@ -156,6 +156,7 @@ public class  CadastroActivity extends AppCompatActivity {
                 livro.setDescricao(descricao);
 
                 myBooksDb.daoLivro().atualizar(livro);
+                alert("Pronto", "Livro atualizado com sucesso", "OK", null);
             }else{
 
                 livro.setCapa(capa);
@@ -186,7 +187,7 @@ public class  CadastroActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton(positive, new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 

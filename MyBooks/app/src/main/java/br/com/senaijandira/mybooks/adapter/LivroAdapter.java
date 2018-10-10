@@ -95,6 +95,9 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         txtLivrosParaler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(livro.getStatusLivro() == 0){
+                    alert("Concluído", "Livro adcionado a livros para ler");
+                }
                 atualizarStatusLivro(livro, 1);
             }
         });
@@ -104,7 +107,12 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         txtLivrolido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(livro.getStatusLivro() == 0){
+                    alert("Concluído", "Livro adcionado a livros lidos");
+                }
                 atualizarStatusLivro(livro, 2);
+
             }
         });
 

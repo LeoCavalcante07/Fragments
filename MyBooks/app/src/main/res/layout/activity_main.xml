@@ -63,7 +63,7 @@
 
 
     <!-- o pipe | serve para juntar os negocios-->
-    <!-- <android.support.design.widget.FloatingActionButton
+        <!--<android.support.design.widget.FloatingActionButton
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="16dp"
@@ -74,7 +74,7 @@
          android:onClick="abrirCadastro"
          />-->
 
-    <Button
+        <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="450dp"
