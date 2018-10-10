@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 import br.com.senaijandira.mybooks.R;
 import br.com.senaijandira.mybooks.Utils;
-import br.com.senaijandira.mybooks.adapter.LivroAdapter;
+import br.com.senaijandira.mybooks.adapter.LivroLidoAdapter;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
 import br.com.senaijandira.mybooks.model.Livro;
 
@@ -24,7 +24,8 @@ public class FragLivroLido extends Fragment {
 
     MyBooksDatabase myBooksDb;
     ListView listViewLivros;
-    LivroAdapter livroAdapter;
+    LivroLidoAdapter livroAdapter;
+
     public static Livro[] livros;
 
 
@@ -39,7 +40,7 @@ public class FragLivroLido extends Fragment {
 
 
         listViewLivros = v.findViewById(R.id.listViewLivros);
-        livroAdapter = new LivroAdapter(getContext(), myBooksDb);
+        livroAdapter = new LivroLidoAdapter(getContext(), myBooksDb);
         listViewLivros.setAdapter(livroAdapter);
 
         //listaLivros = findViewById(R.id.listaLivros);
@@ -51,5 +52,15 @@ public class FragLivroLido extends Fragment {
 
 
         return v;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        livros = myBooksDb.daoLivro().selecionarTodosLivrosLidos();
+        livroAdapter.clear();
+        livroAdapter.addAll(livros);
     }
 }

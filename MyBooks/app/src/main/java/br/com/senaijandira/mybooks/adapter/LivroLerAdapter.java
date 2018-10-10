@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import br.com.senaijandira.mybooks.LivroLerActivity;
-import br.com.senaijandira.mybooks.LivroLidoActivity;
 import br.com.senaijandira.mybooks.R;
 import br.com.senaijandira.mybooks.Utils;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
@@ -67,7 +65,9 @@ public class LivroLerAdapter extends ArrayAdapter<Livro>{
             public void onClick(View view) {
                 livroLer.setStatusLivro(0);
                 myBooksDatabase.daoLivro().atualizar(livroLer);
+
                 remove(livroLer);
+
 
 
             }

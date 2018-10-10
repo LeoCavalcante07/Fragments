@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import br.com.senaijandira.mybooks.R;
@@ -39,7 +37,8 @@ public class LivroLidoAdapter extends ArrayAdapter<Livro> {
         View v = convertView;
 
         if(v == null){
-            v = LayoutInflater.from(getContext()).inflate(R.layout.livros_lido_layout, parent, false);
+            //v = LayoutInflater.from(getContext()).inflate(R.layout.livro_lido_layout, parent, false);
+            v = LayoutInflater.from(getContext()).inflate(R.layout.livro_ler_layout, parent, false);
         }
 
         Livro livroLido = getItem(position);
@@ -52,10 +51,10 @@ public class LivroLidoAdapter extends ArrayAdapter<Livro> {
 
 
     public void criarLivroLido(final Livro livroLido, View v){
-        ImageView imgLivroCapa = v.findViewById(R.id.imgLivroCapa);
-        TextView txtTitulo = v.findViewById(R.id.txtTitulo);
-        TextView txtLivroDesc = v.findViewById(R.id.txtLivroDescricao);
-        TextView txtLivroTitulo = v.findViewById(R.id.txtLivroTitulo);
+        ImageView imgLivroCapa = v.findViewById(R.id.imgLivroLerCapa);
+        //TextView txtTitulo = v.findViewById(R.id.txtTitulo);
+        TextView txtLivroDesc = v.findViewById(R.id.txtLivroLerDescricao);
+        TextView txtLivroTitulo = v.findViewById(R.id.txtLivroLerTitulo);
 
         ImageView imgDelete = v.findViewById(R.id.imgDeleteLivroLer);
         imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +62,7 @@ public class LivroLidoAdapter extends ArrayAdapter<Livro> {
             public void onClick(View view) {
                 livroLido.setStatusLivro(0);
                 myBooksDb.daoLivro().atualizar(livroLido);
+                remove(livroLido);
 
             }
         });

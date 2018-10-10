@@ -12,13 +12,13 @@ import android.widget.ListView;
 
 import br.com.senaijandira.mybooks.R;
 import br.com.senaijandira.mybooks.Utils;
-import br.com.senaijandira.mybooks.adapter.LivroAdapter;
+import br.com.senaijandira.mybooks.adapter.LivroLerAdapter;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
 import br.com.senaijandira.mybooks.model.Livro;
 
 public class FragLivroLer extends Fragment {
 
-    LivroAdapter livroAdapter;
+    LivroLerAdapter livroAdapter;
 
     ListView listViewLivros;
 
@@ -42,7 +42,7 @@ public class FragLivroLer extends Fragment {
 
 
         listViewLivros = v.findViewById(R.id.listViewLivros);
-        livroAdapter = new LivroAdapter(getContext(), myBooksDb);
+        livroAdapter = new LivroLerAdapter(getContext(), myBooksDb);
         listViewLivros.setAdapter(livroAdapter);
 
         //listaLivros = findViewById(R.id.listaLivros);

@@ -2,6 +2,7 @@ package br.com.senaijandira.mybooks.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.com.senaijandira.mybooks.CadastroActivity;
 import br.com.senaijandira.mybooks.R;
 import br.com.senaijandira.mybooks.Utils;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
@@ -62,6 +64,7 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         TextView txtLivrosParaler = v.findViewById(R.id.txtLivrosParaLer);
 
         ImageView imgDeleteLivro = v.findViewById(R.id.imgDeleteLivro);
+        ImageView imgEditLivro = v.findViewById(R.id.imgEdit);
 
 
         imgDeleteLivro.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +73,19 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
 
                 if(livro.getStatusLivro() == 0){
                     deletarLivro(livro);
+                }else{
+                    alert("Atenção", "Não é possivel apagar um livro que está em outra lista");
                 }
 
+            }
+        });
+
+
+
+        imgEditLivro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarLivro(livro);
             }
         });
 
@@ -113,6 +127,17 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         //listaLivros.removeView(v);
         //listViewLivros.removeView(v);
 
+
+
+    }
+
+
+
+    private void editarLivro(Livro livro){
+        Intent intent = new Intent(getContext(), CadastroActivity.class).putExtra("idLivro", livro.getId());
+        getContext().startActivity(intent);
+
+        CadastroActivity ca = new CadastroActivity();
 
 
     }
@@ -172,6 +197,23 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
 
         alertAtualizar.show();
 
+    }
+
+
+    public void alert(String titulo, String mensagem){
+        final AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+        alert.setTitle(titulo);
+        alert.setMessage(mensagem);
+        alert.setCancelable(false);
+
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();
     }
 
 

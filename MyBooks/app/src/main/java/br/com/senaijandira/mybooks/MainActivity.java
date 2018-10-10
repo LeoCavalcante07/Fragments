@@ -1,8 +1,5 @@
 package br.com.senaijandira.mybooks;
 
-import android.app.Fragment;
-
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import br.com.senaijandira.mybooks.adapter.LivroAdapter;
 import br.com.senaijandira.mybooks.fragments.FragLivro;
 import br.com.senaijandira.mybooks.fragments.FragLivroLer;
 import br.com.senaijandira.mybooks.fragments.FragLivroLido;
@@ -31,12 +27,25 @@ public class MainActivity extends AppCompatActivity {
 
         fm  = getSupportFragmentManager();
 
+        abrirLivro();
 
         tabMenu = findViewById(R.id.menuTab);
 
         tabMenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
+//                switch (tab.getPosition()){
+//                    case 0:
+//                        abrirLivro();
+//                    case 1:
+//                        abrirLivroler();
+//                    case 2:
+//                        abrirLivroLido();
+//
+//
+//                }
+
                 if(tab.getPosition() == 0){
                     abrirLivro();
                 }else if(tab.getPosition() == 1){
@@ -100,6 +109,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrirCadastro(View view) {
         startActivity(new Intent(this, CadastroActivity.class));
-        //startActivity(new Intent(this, CadastroActivity.class));
     }
 }
