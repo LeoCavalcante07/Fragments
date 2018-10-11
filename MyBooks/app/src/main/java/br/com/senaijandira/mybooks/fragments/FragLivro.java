@@ -65,6 +65,8 @@ public class FragLivro extends Fragment {
 
     }
 
+
+
     public void carregarLivros(){
         //Aqui faz um select no banco
         livros = myBooksDb.daoLivro().selecionarTodos();

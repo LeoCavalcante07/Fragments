@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void abrirLivro(){
 
 //        FragLivro.LivrosAdapter livrosAdapter = new FragLivro.LivrosAdapter(this);

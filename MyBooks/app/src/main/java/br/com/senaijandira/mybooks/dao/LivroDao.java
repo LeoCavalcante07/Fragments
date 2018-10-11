@@ -11,7 +11,7 @@ import br.com.senaijandira.mybooks.model.Livro;
 @Dao  //indica que a classe é um Dao
 public interface LivroDao {
 
-    @Insert
+@Insert
     void inserir(Livro livro);
 
     @Update
