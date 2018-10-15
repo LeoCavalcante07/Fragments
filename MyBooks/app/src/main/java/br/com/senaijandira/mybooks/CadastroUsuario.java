@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import br.com.senaijandira.mybooks.db.UsuarioDataBase;
+import br.com.senaijandira.mybooks.db.MyBooksDatabase;
+
 import br.com.senaijandira.mybooks.model.Usuario;
 
 public class CadastroUsuario extends Activity {
 
-    UsuarioDataBase usuarioDb;
+    MyBooksDatabase myBooksDb;
 
     Button btnGravar;
 
@@ -40,7 +41,7 @@ public class CadastroUsuario extends Activity {
         btnGravar = findViewById(R.id.btnGravar);
 
 
-        usuarioDb = Room.databaseBuilder(getApplicationContext(), UsuarioDataBase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
+        myBooksDb = Room.databaseBuilder(getApplicationContext(), MyBooksDatabase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
 
         edEmail = findViewById(R.id.edEmail);
@@ -77,7 +78,8 @@ public class CadastroUsuario extends Activity {
             usuario.setSenha(senha);
             usuario.setNome(nome);
 
-            usuarioDb.usuarioDao().inserir(usuario);
+
+            myBooksDb.usuarioDao().inserir(usuario);
 
             alert("Parabéns", "Usuário "+usuario.getNome()+" cadastrado com sucesso!", "OK", null);
 

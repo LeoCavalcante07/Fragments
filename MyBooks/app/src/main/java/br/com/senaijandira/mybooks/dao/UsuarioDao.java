@@ -8,6 +8,10 @@ import android.arch.persistence.room.Update;
 
 import br.com.senaijandira.mybooks.model.Usuario;
 
+/**
+ * Created by 17259211 on 15/10/2018.
+ */
+
 @Dao
 public interface UsuarioDao {
 
@@ -22,6 +26,5 @@ public interface UsuarioDao {
 
     @Query("select * from usuario where email=:email and senha=:senha")
     Usuario[] selecionarLogin(String email, String senha);
-
 
 }

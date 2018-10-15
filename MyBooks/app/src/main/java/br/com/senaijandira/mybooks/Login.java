@@ -11,14 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import br.com.senaijandira.mybooks.db.UsuarioDataBase;
+import br.com.senaijandira.mybooks.db.MyBooksDatabase;
 import br.com.senaijandira.mybooks.model.Usuario;
 
 public class Login extends Activity {
 
-    UsuarioDataBase usuarioDb;
+    MyBooksDatabase myBooksDb;
 
-    public static Usuario[] usuario;
+    public static Usuario usuarioLogado;
+
 
     EditText edEmail;
     EditText edSenha;
@@ -35,15 +36,12 @@ public class Login extends Activity {
         email = "";
         senha = "";
 
-        usuarioDb = Room.databaseBuilder(getApplicationContext(), UsuarioDataBase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
+        myBooksDb = Room.databaseBuilder(getApplicationContext(), MyBooksDatabase.class, Utils.DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
         edEmail = findViewById(R.id.edUsuarioLog);
         edSenha = findViewById(R.id.edSenhaLog);
 
         btnLogar = findViewById(R.id.btnLogar);
-
-        usuario = new Usuario[]{};
-
 
 
     }
@@ -74,9 +72,13 @@ public class Login extends Activity {
     public void logar(String email, String senha){
 
 
-        usuario = usuarioDb.usuarioDao().selecionarLogin(email, senha);
 
-        if(usuario.length > 0){
+       Usuario[] usuarios = myBooksDb.usuarioDao().selecionarLogin(email, senha);
+
+        if(usuarios.length > 0){
+
+            usuarioLogado = usuarios[0];
+
             startActivity(new Intent(this, MainActivity.class));
         }
     }

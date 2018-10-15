@@ -21,8 +21,9 @@ public interface LivroDao {
     @Delete
     void deletar(Livro livro);
 
-    @Query("select * from livro")
-    Livro[] selecionarTodos();
+    @Query("select * from livro where usuarioLivro = :idUsuario")
+//    Livro[] selecionarTodos(int idUsuario);
+    Livro[] selecionarTodos(int idUsuario);
 
 
     @Query("select * from livro where id = :idLivro")

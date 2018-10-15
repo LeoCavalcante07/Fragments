@@ -16,16 +16,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.com.senaijandira.mybooks.CadastroActivity;
+import br.com.senaijandira.mybooks.Login;
 import br.com.senaijandira.mybooks.R;
 import br.com.senaijandira.mybooks.Utils;
 import br.com.senaijandira.mybooks.db.MyBooksDatabase;
 import br.com.senaijandira.mybooks.fragments.FragLivro;
 import br.com.senaijandira.mybooks.model.Livro;
+import br.com.senaijandira.mybooks.model.Usuario;
 
 public class LivroAdapter extends ArrayAdapter<Livro> {
     FragLivro fragLivro;
 
     MyBooksDatabase myBooksDb;
+
+
+
 
     public LivroAdapter(Context context, MyBooksDatabase myBooksDb){
         super(context, 0, new ArrayList<Livro>());
@@ -56,6 +61,8 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
 
 
     public void criarLivro(final Livro livro, View v){
+
+
 
         ImageView imgLivroCapa = v.findViewById(R.id.imgLivroCapa);
         TextView txtLivroTitulo = v.findViewById(R.id.txtLivroTitulo);
