@@ -112,4 +112,8 @@ public class MainActivity extends AppCompatActivity {
     public void abrirCadastro(View view) {
         startActivity(new Intent(this, CadastroActivity.class));
     }
+
+    public void sair(View view) {
+        startActivity(new Intent(this, Login.class));
+    }
 }

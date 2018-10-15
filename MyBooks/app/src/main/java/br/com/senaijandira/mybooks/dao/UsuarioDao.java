@@ -20,7 +20,7 @@ public interface UsuarioDao {
     @Update
     void atualizar(Usuario usuario);
 
-    @Query("select * from usuario where email = :email and senha = :senha")
+    @Query("select * from usuario where email=:email and senha=:senha")
     Usuario[] selecionarLogin(String email, String senha);
 
 
